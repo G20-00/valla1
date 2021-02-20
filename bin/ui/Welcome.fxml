@@ -5,18 +5,17 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Option">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Add billboards" />
-                  <MenuItem mnemonicParsing="false" text="Display billboards" />
-              <MenuItem mnemonicParsing="false" text="Import billboards" />
-                  <MenuItem mnemonicParsing="false" text="Export hazard report" />
-                  <MenuItem mnemonicParsing="false" text="leave" />
+                  <MenuItem mnemonicParsing="false" onAction="#AddBillboards" text="Add billboards" />
+                  <MenuItem mnemonicParsing="false" onAction="#DisplayBillboards" text="Display billboards" />
+              <MenuItem mnemonicParsing="false" onAction="#ImportBillboards" text="Import billboards" />
+                  <MenuItem mnemonicParsing="false" onAction="#ExportReport" text="Export hazard report" />
+                  <MenuItem mnemonicParsing="false" onAction="#leave" text="leave" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
