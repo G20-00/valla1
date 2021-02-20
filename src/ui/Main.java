@@ -1,5 +1,7 @@
 package ui;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +14,7 @@ public class Main extends Application{
 		private InfrastructureDepartmentGUI infrastructureGui;
 		
 		
-		public Main(){
+		public Main() throws ClassNotFoundException, IOException{
 			infrastructure = new InfrastructureDepartment();
 			infrastructureGui = new InfrastructureDepartmentGUI(infrastructure);
 			

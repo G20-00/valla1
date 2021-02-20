@@ -1,18 +1,25 @@
 package model;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class InfrastructureDepartment {
-	private static final String SAVE_PATH_FILE  ="data/billboards.ap2";
+	private static final String SAVE_PATH_FILE  ="src/data/contacts.ap2";
 	public final static String SPLIT ="\\|";
 	private List<Billboard> billboards ; 
-	public InfrastructureDepartment() {
+	
+	public InfrastructureDepartment() throws ClassNotFoundException, IOException {
 		setBillboards(new ArrayList<>());
+		loadData();
 		
 	}
 	public List<Billboard> getBillboards() {
@@ -24,33 +31,40 @@ public class InfrastructureDepartment {
 	public static String getSavePathFile() {
 		return SAVE_PATH_FILE;
 	}
-	public void addBillboard(String Namecompany,String height,String  broad ,String browser) {
+	public void addBillboard(String Namecompany,String height,String  broad ,String browser) throws IOException {
 		billboards.add(new Billboard(Namecompany, height,broad,browser));
+		saveData();
 	}
-		public void importData(String fileName) throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader(fileName));
-		String read = br.readLine();
-		while(read!=null) {
-			String[]position = read.split(SPLIT);
-			String found= "false";
-			if(position[2].equals("true")) {
-				found = "true";
-			}
-			if(!position[0].equals("width")) {
-				addBillboard(position[0],position[1],found,position[3]);
-			}
-			read = br.readLine();
-		}
-		br.close();
-	}
+		
+	
 		public void importContacts(String fileName)throws IOException {
 			 BufferedReader br = new BufferedReader(new FileReader(fileName));
 			    String line = br.readLine();
 			    while(line!=null){
-			      String[] parts = line.split(";");
-			      addBillboard(parts[0],parts[1],parts[2],parts[3]);
-			      line = br.readLine();
-			    }
+			      String[] parts = line.split(SPLIT);
+			      addBillboard(parts[3],parts[1],parts[0],parts[2]); 
+			      line = br.readLine(); 
+			    } 
 			    br.close();
 		}
+		 public void exportData(String fileName) throws FileNotFoundException{
+			    
+			  }
+		 public void saveData() throws IOException{
+			    ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(SAVE_PATH_FILE));
+			    oos.writeObject(billboards);
+			    oos.close();
+			  }
+		 @SuppressWarnings("unchecked")
+		public boolean loadData() throws IOException, ClassNotFoundException{
+			    File f = new File(SAVE_PATH_FILE);
+			    boolean loaded = false;
+			    if(f.exists()){
+			      ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+			      billboards = (List<Billboard>)ois.readObject();
+			      ois.close();
+			      loaded = true;
+			    }
+			    return loaded;
+			  }
 }

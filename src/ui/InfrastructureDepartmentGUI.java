@@ -1,6 +1,7 @@
 package ui;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.collections.FXCollections;
@@ -55,7 +56,7 @@ public class InfrastructureDepartmentGUI {
     	observableList = FXCollections.observableArrayList(infrastructure.getBillboards());
     	
 		tvContactList.setItems(observableList);
-		width.setCellValueFactory(new PropertyValueFactory<Billboard,String>("broad")); 
+		width.setCellValueFactory(new PropertyValueFactory<Billboard,String>("width")); 
 		height.setCellValueFactory(new PropertyValueFactory<Billboard,String>("height")); 
 		inUse.setCellValueFactory(new PropertyValueFactory<Billboard,String>("browser")); 
 		nameCompany.setCellValueFactory(new PropertyValueFactory<Billboard,String>("Namecompany")); 
@@ -137,7 +138,7 @@ public class InfrastructureDepartmentGUI {
 
 		    @FXML
 		    void ExportReport(ActionEvent event) {
-
+		    	
 		    }
 
 		    @FXML
