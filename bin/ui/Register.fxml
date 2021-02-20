@@ -25,9 +25,9 @@
             <Label text="Nombre de la empresa" translateX="30.0" />
             <Label text="Altura" translateX="70.0" GridPane.rowIndex="1" />
             <Label text="Ancho" translateX="70.0" GridPane.rowIndex="2" />
-            <TextField fx:id="txtName" promptText="Nombre " GridPane.columnIndex="1" />
+            <TextField fx:id="txtName" promptText="Compañia" GridPane.columnIndex="1" />
             <TextField fx:id="txtheight" minWidth="-Infinity" promptText="Altura" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField onAction="#txtbroad" promptText="Ancho" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtbroad" promptText="Ancho" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </center>
@@ -46,7 +46,7 @@
             <Label text="¿Se encuentra en uso?" translateX="30.0" />
             <ComboBox fx:id="browserBox" prefWidth="150.0" GridPane.columnIndex="1" />
             <Button mnemonicParsing="false" onAction="#save" prefHeight="37.0" prefWidth="85.0" style="-fx-background-radius: 20; -fx-background-color: green;" text="GUARDAR" textOverrun="CENTER_ELLIPSIS" translateX="50.0" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#cancel" prefHeight="37.0" prefWidth="85.0" style="-fx-background-radius: 20; -fx-background-color: red;" text="CANCELAR" textOverrun="CENTER_WORD_ELLIPSIS" translateX="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#cancel" prefHeight="37.0" prefWidth="85.0" style="-fx-background-radius: 20; -fx-background-color: red;" text="FINALIZAR" textOverrun="CENTER_WORD_ELLIPSIS" translateX="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </bottom>

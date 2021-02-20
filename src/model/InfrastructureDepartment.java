@@ -24,20 +24,33 @@ public class InfrastructureDepartment {
 	public static String getSavePathFile() {
 		return SAVE_PATH_FILE;
 	}
-	public void importData(String fileName) throws IOException {
+	public void addBillboard(String Namecompany,String height,String  broad ,String browser) {
+		billboards.add(new Billboard(Namecompany, height,broad,browser));
+	}
+		public void importData(String fileName) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		String read = br.readLine();
 		while(read!=null) {
 			String[]position = read.split(SPLIT);
-			boolean found= false;
+			String found= "false";
 			if(position[2].equals("true")) {
-				found = true;
+				found = "true";
 			}
 			if(!position[0].equals("width")) {
-				
+				addBillboard(position[0],position[1],found,position[3]);
 			}
 			read = br.readLine();
 		}
 		br.close();
 	}
+		public void importContacts(String fileName)throws IOException {
+			 BufferedReader br = new BufferedReader(new FileReader(fileName));
+			    String line = br.readLine();
+			    while(line!=null){
+			      String[] parts = line.split(";");
+			      addBillboard(parts[0],parts[1],parts[2],parts[3]);
+			      line = br.readLine();
+			    }
+			    br.close();
+		}
 }

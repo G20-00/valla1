@@ -12,7 +12,7 @@
           <Menu mnemonicParsing="false" text="Option">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#AddBillboards" text="Add billboards" />
-                  <MenuItem mnemonicParsing="false" onAction="#DisplayBillboards" text="Display billboards" />
+                  <MenuItem fx:id="loadBillboard" mnemonicParsing="false" onAction="#DisplayBillboards" text="Display billboards" />
               <MenuItem mnemonicParsing="false" onAction="#ImportBillboards" text="Import billboards" />
                   <MenuItem mnemonicParsing="false" onAction="#ExportReport" text="Export hazard report" />
                   <MenuItem mnemonicParsing="false" onAction="#leave" text="leave" />
@@ -20,7 +20,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#showAbout" text="About" />
             </items>
           </Menu>
         </menus>
