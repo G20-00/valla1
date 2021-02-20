@@ -137,8 +137,16 @@ public class InfrastructureDepartmentGUI {
 		    }
 
 		    @FXML
-		    void ExportReport(ActionEvent event) {
-		    	
+		    void ExportReport(ActionEvent event) throws IOException {
+		    	FileChooser fileChooser = new FileChooser();
+		    	fileChooser.setTitle("Open Resource File");
+		    	File f = fileChooser.showOpenDialog(white.getScene().getWindow());
+		    	try {
+		    		infrastructure.exportData(f.getAbsolutePath());
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		    }
 
 		    @FXML

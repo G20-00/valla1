@@ -6,6 +6,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.InfrastructureDepartment;
 
@@ -14,8 +16,21 @@ public class Main extends Application{
 		private InfrastructureDepartmentGUI infrastructureGui;
 		
 		
-		public Main() throws ClassNotFoundException, IOException{
-			infrastructure = new InfrastructureDepartment();
+		public Main() {
+			try {
+				infrastructure = new InfrastructureDepartment();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				Alert alert = new Alert(AlertType.INFORMATION);
+			    alert.setTitle("Contact Manager");  
+		    alert.setContentText("Error loading data from file");
+			
+			    alert.showAndWait();
+			}
 			infrastructureGui = new InfrastructureDepartmentGUI(infrastructure);
 			
 		}
